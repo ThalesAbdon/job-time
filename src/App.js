@@ -17,24 +17,33 @@ function App() {
       if (startTime && endTime) {
         const [startHour, startMinute] = startTime.split(':').map(Number);
         const [endHour, endMinute] = endTime.split(':').map(Number);
-
+        console.log("Começa aqui Thales!")
+        console.log(startHour)
+        console.log(startMinute)
+        console.log(endHour)
+        console.log(endMinute)
         let diffHour = endHour - startHour;
         let diffMinute = endMinute - startMinute;
-
+        console.log(diffHour)
+        console.log(diffMinute)
         if (diffMinute < 0) {
           diffHour -= 1;
           diffMinute += 60;
         }
 
         totalHours += diffHour;
+        console.log(totalHours)
         totalMinutes += diffMinute;
+        console.log(totalMinutes)
       }
     });
-
-    totalHours += Math.floor(totalMinutes / 60); // Adiciona horas completas dos minutos restantes
-    totalMinutes %= 60; // Resto dos minutos após adicionar horas completas
     totalHours = totalHours/2
     totalMinutes = totalMinutes/2
+    console.log(totalMinutes)
+    totalHours += Math.floor(totalMinutes / 60); // Adiciona horas completas dos minutos restantes
+    console.log(totalHours)
+    totalMinutes %= 60; // Resto dos minutos após adicionar horas completas
+    console.log(totalMinutes)
     setHoursWorked(`${totalHours} horas e ${totalMinutes} minutos`);
     const remaining = 16 - (totalHours + totalMinutes / 60);
     const remainingHours = Math.floor(remaining); // Horas restantes (parte inteira)
